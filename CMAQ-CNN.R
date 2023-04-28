@@ -55,7 +55,7 @@ model %>%
 model %>% compile(
   optimizer = 'adam',
   loss = 'mean_absolute_error',
-  metrics = 'mean_squared_error'
+  metrics = metric_coeff_determination
 )
 
 history = model %>% 
