@@ -49,7 +49,6 @@ cumulative$scenario = c('Base case','CCUS0','CCUS1','CCUS2',
                     'CCUS0-MFRT')
 cumulative$deaths = deathsbox
 cumulative$ci = abs(deathsboxupper-deathsbox)
-cumulative[4,2] = cumulative[4,2]-0.5
 p2=ggplot(data = cumulative,aes(x=factor(scenario,,levels = c('Base case','CCUS0','CCUS1','CCUS2',
                                                            'CCUS2-NET1','CCUS2-NET2','CCUS2-NET2-MFRT',
                                                            'CCUS0-MFRT')),y=deaths))+geom_bar(stat = 'identity',aes(fill=scenario),alpha = .6)+geom_errorbar(aes(ymin = deaths-ci,ymax = deaths+ci),lwd=1,width = .4)+
