@@ -2,6 +2,7 @@ library(dplyr)
 library(tensorflow)
 library(keras)
 library(tidyr)
+#loaded the trained CMAQ-CNN model
 model = load_model_hdf5("my_model.h5")
 
 #'so2','nox','voc','pm25','pm10','nh3'
@@ -13,7 +14,7 @@ df = read.csv('./data/pathways2.csv',header = TRUE)
 pmlevel = array(data = NA,dim = c(8,9))%>%as.data.frame()
 names(pmlevel) = c('year','Baseline','CCUS0','CCUS1','CCUS2','CCUS2-NET1','CCUS2-NET2','CCUS2-NET2-MFRT','CCUS0-MFRT')
 
-
+#Calculated PM2.5 level at each time point under eight scenarios
 for (v in 1:8) {
   
 sc = names(pmlevel)[v+1]
