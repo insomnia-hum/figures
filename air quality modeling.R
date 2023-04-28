@@ -52,6 +52,7 @@ pmlevel[,v+1] = box
 pmlevel$year = c(2014,2020,2025,2030,2035,2040,2050,2060)
 pmlevel2 = pmlevel%>%gather(key = 'scenario',value = 'pm',2:9)
 library(MetBrewer)
+#Plotting
 ggplot(data = pmlevel2,aes(x=year,y=pm,color=factor(scenario,levels = c('Baseline','CCUS0','CCUS1','CCUS2',
                                                                         'CCUS2-NET1','CCUS2-NET2','CCUS2-NET2-MFRT',
                                                                         'CCUS0-MFRT'))))+geom_line(lwd=1)+theme_light()+
