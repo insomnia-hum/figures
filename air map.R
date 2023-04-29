@@ -43,7 +43,7 @@ box[[v]] = inputdata
 }
 
 #loaded the shp file of Chinese city
-city = read_sf('city.shp')
+city = read_sf('市.shp')
 library(readxl)
 for (i in 1:8) {
 pred = predict(model,box[[i]])%>%as.numeric()
