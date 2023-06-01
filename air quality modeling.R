@@ -12,7 +12,7 @@ df = read.csv('./data/pathways2.csv',header = TRUE)
 
 
 pmlevel = array(data = NA,dim = c(8,9))%>%as.data.frame()
-names(pmlevel) = c('year','Baseline','CCUS0','CCUS1','CCUS2','CCUS2-NET1','CCUS2-NET2','CCUS2-NET2-MFRT','CCUS0-MFRT')
+names(pmlevel) = c('year','Base case','CCUS0','CCUS1','CCUS2','CCUS2-NET1','CCUS2-NET2','CCUS2-NET2-MFRT','CCUS0-MFRT')
 
 #Calculated PM2.5 level at each time point under eight scenarios
 for (v in 1:8) {
@@ -53,7 +53,7 @@ pmlevel$year = c(2014,2020,2025,2030,2035,2040,2050,2060)
 pmlevel2 = pmlevel%>%gather(key = 'scenario',value = 'pm',2:9)
 library(MetBrewer)
 #Plotting
-ggplot(data = pmlevel2,aes(x=year,y=pm,color=factor(scenario,levels = c('Baseline','CCUS0','CCUS1','CCUS2',
+ggplot(data = pmlevel2,aes(x=year,y=pm,color=factor(scenario,levels = c('Base case','CCUS0','CCUS1','CCUS2',
                                                                         'CCUS2-NET1','CCUS2-NET2','CCUS2-NET2-MFRT',
                                                                         'CCUS0-MFRT'))))+geom_line(lwd=1)+theme_light()+
   labs(x='',y='PM2.5 concentration (μg/m3)',color='Scenario',title = 'Variations of PM2.5 concentrations under eight scenarios')+geom_vline(xintercept = 2035,lty=2,lwd=1)+
